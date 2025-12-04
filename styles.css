@@ -80,16 +80,7 @@ body {
     background: white;
     left: 50%;
     transform: translateX(-50%);
-    animation: moveRoad 1s linear infinite;
-}
-
-@keyframes moveRoad {
-    from {
-        top: -100px;
-    }
-    to {
-        top: 700px;
-    }
+    display: none;
 }
 
 #gameOverScreen {
@@ -132,13 +123,7 @@ body {
 
 .crash-animation {
     font-size: 80px;
-    animation: pulse 0.5s ease-in-out infinite;
     margin-bottom: 20px;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
 }
 
 .game-text {
