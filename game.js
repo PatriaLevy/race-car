@@ -247,4 +247,16 @@ function restartGame() {
     updateGame();
 }
 
+// Start game
+updateGame();
+```
 
+---
+
+## 📁 **Final Folder Structure:**
+```
+your-game-folder/
+├── index.html
+├── styles.css
+├── game.js
+└── crash-video.mp4
