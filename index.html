@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patria's World</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Car Racing Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="gameContainer">
@@ -23,23 +23,17 @@
         <div class="road-line" style="animation-delay: 0.8s;"></div>
         
         <div id="gameOverScreen">
-            <video id="gameOverVideo" loop playsinline>
+            <video id="gameOverVideo" autoplay loop muted playsinline>
                 <source src="crash-video.mp4" type="video/mp4">
             </video>
             <div class="game-over-content">
-                <div class="crash-animation" id="crashAnimation">
-                    💥RELAPSE TIME💥
-                </div>
-                <div class="game-text">🚗💥 GAME OVER! MAY IBA NA SIYA 💥🚗</div>
+                <div class="game-text">🚗💥 GAME OVER! 💥🚗</div>
                 <div class="game-text" id="finalScore">Final Score: 0</div>
                 <button class="restart-btn" onclick="restartGame()">🚗 Play Again</button>
             </div>
         </div>
     </div>
 
-    <script src="game.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
-
-
