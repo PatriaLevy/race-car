@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+#gameContainer {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 100vh;
+    max-height: 600px;
+    background: #2d3436;
+    border-radius: 0;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    #gameContainer {
+        border-radius: 20px;
+        height: 600px;
+    }
+}
+
+#gameCanvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+}
+
+#score {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    z-index: 10;
+}
+
+#instructions {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-size: 14px;
+    text-align: left;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    z-index: 10;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    #instructions {
+        font-size: 12px;
+        top: 10px;
+        left: 10px;
+    }
+}
+
+.road-line {
+    position: absolute;
+    width: 10px;
+    height: 80px;
+    background: white;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: moveRoad 1s linear infinite;
+}
+
+@keyframes moveRoad {
+    from {
+        top: -100px;
+    }
+    to {
+        top: 700px;
+    }
+}
+
+#gameOverScreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+#gameOverScreen.show {
+    display: flex;
+}
+
+#gameOverVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+.game-over-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.crash-animation {
+    font-size: 80px;
+    animation: pulse 0.5s ease-in-out infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.game-text {
+    color: #ff6b6b;
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+    margin: 10px 0;
+}
+
+#finalScore {
+    color: #ffd93d;
+    font-size: 36px;
+    margin: 20px 0;
+}
+
+.restart-btn {
+    margin-top: 30px;
+    padding: 15px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+}
+
+.restart-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+.restart-btn:active {
+    transform: translateY(0);
+}
