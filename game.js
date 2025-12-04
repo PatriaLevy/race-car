@@ -109,7 +109,7 @@ function drawRoad() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
     // Grass on sides
-    const grassWidth = canvas.width * 0.125; // 12.5% on each side
+    const grassWidth = canvas.width * 0.125;
     ctx.fillStyle = '#2ecc71';
     ctx.fillRect(0, 0, grassWidth, canvas.height);
     ctx.fillRect(canvas.width - grassWidth, 0, grassWidth, canvas.height);
@@ -224,10 +224,18 @@ function gameOver() {
     finalScoreDisplay.textContent = 'Final Score: ' + score;
     gameOverScreen.classList.add('show');
     
-    // Play the video
+    // Play the video WITH SOUND
     const video = document.getElementById('gameOverVideo');
     video.currentTime = 0;
-    video.play().catch(err => console.log('Video autoplay prevented'));
+    video.muted = false;
+    video.volume = 0.7;
+    video.play().catch(err => {
+        console.log('Video autoplay prevented - user interaction may be needed');
+        video.muted = true;
+        video.play().then(() => {
+            video.muted = false;
+        }).catch(e => console.log('Video play failed:', e));
+    });
 }
 
 function restartGame() {
@@ -240,23 +248,12 @@ function restartGame() {
     scoreDisplay.textContent = 'Score: 0';
     gameOverScreen.classList.remove('show');
     
-    // Stop the video
     const video = document.getElementById('gameOverVideo');
     video.pause();
+    video.currentTime = 0;
     
     updateGame();
 }
 
 // Start game
 updateGame();
-```
-
----
-
-## 📁 **Final Folder Structure:**
-```
-your-game-folder/
-├── index.html
-├── styles.css
-├── game.js
-└── crash-video.mp4
